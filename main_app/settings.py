@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework.authtoken',
 
     'applications.account',
 
@@ -81,12 +82,12 @@ WSGI_APPLICATION = 'main_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
-        'NAME': config(DB_NAME),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
         'HOST': 'localhost',
-        'USER': config(DB_USER),
+        'USER': config('DB_USER'),
         'PORT': '5432',
-        'PASSWORD': config(DB_PASSWORD),
+        'PASSWORD': config('DB_PASSWORD'),
 
 
     }
@@ -135,3 +136,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'account.CustomUser'
